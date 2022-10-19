@@ -1,0 +1,16 @@
+{
+  "name": "cvs-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "worksnaps": "node worksnaps.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "exceljs": "^4.3.0"
+  }
+}
