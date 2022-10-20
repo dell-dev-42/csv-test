@@ -14,6 +14,7 @@ function toMS(str) {
   return (+mins * 60 + +sec) / 60;
 }
 
+//if exist worksnaps file
 if (fs.existsSync(csvWorksnapsFilePath)) {
   (async () => {
     const jsonWorksnaps = await csv().fromFile(csvWorksnapsFilePath);
@@ -38,6 +39,7 @@ if (fs.existsSync(csvWorksnapsFilePath)) {
       { header: "Time Upwork", key: "time_upwork" },
     ];
 
+    //if exist upwork file
     if (fs.existsSync(csvUpworkFilePath)) {
       const jsonUpwork = await csv().fromFile(csvUpworkFilePath);
       const upworkData = jsonUpwork.map((el) => ({
@@ -51,17 +53,24 @@ if (fs.existsSync(csvWorksnapsFilePath)) {
     // Add row using key mapping to columns
     worksheet.addRows(data);
 
+    //worksnaps total time
     worksheet.getCell("B27").value = { formula: "SUM(B2:B26)" };
+    //upwork total time
     worksheet.getCell("D27").value = { formula: "SUM(D2:D26)" };
 
     worksheet.getCell("A28").value = "Rate:";
     worksheet.getCell("A29").value = "Total:";
+    //worksnaps rate
     worksheet.getCell("B28").value = 3;
+    //upwork rate
     worksheet.getCell("D28").value = 3.5;
 
+    //worksnaps total
     worksheet.getCell("B29").value = { formula: "(B27*B28)" };
+    //upwork total
     worksheet.getCell("D29").value = { formula: "(D27*D28)" };
 
+    //total
     worksheet.getCell("F29").value = { formula: "SUM(B29,D29)" };
 
     // save workbook to disk
