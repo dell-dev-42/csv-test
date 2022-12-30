@@ -63,7 +63,7 @@ if (fs.existsSync(csvWorksnapsFilePath)) {
     //worksnaps rate
     worksheet.getCell("B28").value = 3;
     //upwork rate
-    worksheet.getCell("D28").value = 3.5;
+    worksheet.getCell("D28").value = 3.75;
 
     //worksnaps total
     worksheet.getCell("B29").value = { formula: "(B27*B28)" };
