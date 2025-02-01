@@ -54,24 +54,24 @@ if (fs.existsSync(csvWorksnapsFilePath)) {
     worksheet.addRows(data);
 
     //worksnaps total time
-    worksheet.getCell("B27").value = { formula: "SUM(B2:B26)" };
+    worksheet.getCell("B30").value = { formula: "SUM(B2:B28)" };
     //upwork total time
-    worksheet.getCell("D27").value = { formula: "SUM(D2:D26)" };
+    worksheet.getCell("D30").value = { formula: "SUM(D2:D28)" };
 
-    worksheet.getCell("A28").value = "Rate:";
-    worksheet.getCell("A29").value = "Total:";
+    worksheet.getCell("A31").value = "Rate:";
+    worksheet.getCell("A32").value = "Total:";
     //worksnaps rate
-    worksheet.getCell("B28").value = 3;
+    worksheet.getCell("B31").value = 3;
     //upwork rate
-    worksheet.getCell("D28").value = 3.75;
+    worksheet.getCell("D31").value = 6.75;
 
     //worksnaps total
-    worksheet.getCell("B29").value = { formula: "(B27*B28)" };
+    worksheet.getCell("B32").value = { formula: "(B30*B31)" };
     //upwork total
-    worksheet.getCell("D29").value = { formula: "(D27*D28)" };
+    worksheet.getCell("D32").value = { formula: "(D30*D31)" };
 
     //total
-    worksheet.getCell("F29").value = { formula: "SUM(B29,D29)" };
+    worksheet.getCell("F32").value = { formula: "SUM(B32,D32)" };
 
     // save workbook to disk
     workbook.xlsx
